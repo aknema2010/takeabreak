@@ -1,0 +1,28 @@
+appId: com.takeabreak.app
+productName: TakeABreak
+directories:
+  output: release
+  buildResources: build
+files:
+  - dist/**/*
+  - package.json
+extraResources:
+  - from: assets
+    to: assets
+# Code signing & notarization are required for distribution (see ARCHITECTURE.md).
+# Configure certificates via environment / CI secrets before running `npm run dist`.
+win:
+  target:
+    - nsis
+mac:
+  category: public.app-category.healthcare-fitness
+  target:
+    - dmg
+  hardenedRuntime: true
+linux:
+  target:
+    - AppImage
+  category: Utility
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true

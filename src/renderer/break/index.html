@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; media-src 'self'; style-src 'self'"
+    />
+    <title>TakeABreak</title>
+    <link rel="stylesheet" href="break.css" />
+  </head>
+  <body>
+    <!-- Break view -->
+    <main id="break-view" class="view">
+      <h1>Time for a break</h1>
+      <p class="subtitle">Look away from the screen. Stretch. Breathe.</p>
+      <div id="break-countdown" class="countdown">--</div>
+      <button id="skip-btn" class="skip" hidden>Skip break</button>
+      <p id="strict-note" class="note" hidden>Skipping is disabled (strict mode).</p>
+    </main>
+
+    <!-- Ad view (shown only after the user opts to skip) -->
+    <section id="ad-view" class="view" hidden>
+      <p class="ad-label">Advertisement</p>
+      <video id="ad-video" class="ad-video" muted playsinline>
+        <source src="../../assets/ads/sample.mp4" type="video/mp4" />
+      </video>
+      <div class="ad-timer">
+        Skip available in <span id="ad-remaining">--</span>s
+      </div>
+    </section>
+
+    <script src="break.js"></script>
+  </body>
+</html>

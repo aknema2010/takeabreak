@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  user-select: none;
+  cursor: default;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: #f5f7fa;
+  background: radial-gradient(circle at 50% 35%, #243b55 0%, #141e30 100%);
+}
+
+.view {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+.view[hidden] {
+  display: none;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 1.15rem;
+  opacity: 0.8;
+}
+
+.countdown {
+  font-size: clamp(3rem, 10vw, 7rem);
+  font-variant-numeric: tabular-nums;
+  font-weight: 200;
+}
+
+.skip {
+  margin-top: 1rem;
+  padding: 0.7rem 1.6rem;
+  font-size: 1rem;
+  color: #f5f7fa;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.skip:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.note {
+  font-size: 0.95rem;
+  opacity: 0.6;
+}
+
+.ad-label {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+.ad-video {
+  width: min(70vw, 960px);
+  max-height: 60vh;
+  background: #000;
+  border-radius: 12px;
+}
+
+.ad-timer {
+  font-size: 1.1rem;
+  font-variant-numeric: tabular-nums;
+}

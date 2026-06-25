@@ -1,0 +1,24 @@
+{
+  "name": "takeabreak",
+  "version": "0.1.0",
+  "description": "A break-reminder app that enforces breaks with an ad-gated voluntary skip.",
+  "main": "dist/main/main.js",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node scripts/copy-assets.js",
+    "start": "npm run build && electron .",
+    "dist": "npm run build && electron-builder",
+    "clean": "rimraf dist release"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "electron": "^30.0.0",
+    "electron-builder": "^24.13.0",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.4.0"
+  },
+  "dependencies": {
+    "electron-store": "^8.2.0"
+  }
+}

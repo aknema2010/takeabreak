@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self'"
+    />
+    <title>TakeABreak — Settings</title>
+    <link rel="stylesheet" href="settings.css" />
+  </head>
+  <body>
+    <h1>Settings</h1>
+    <form id="settings-form">
+      <label>
+        Work interval (minutes)
+        <input id="workIntervalMin" type="number" min="1" max="240" />
+      </label>
+      <label>
+        Break duration (seconds)
+        <input id="breakDurationSec" type="number" min="5" max="3600" />
+      </label>
+      <label>
+        Ad duration (seconds)
+        <input id="adDurationSec" type="number" min="1" max="60" />
+      </label>
+      <label class="checkbox">
+        <input id="adRequired" type="checkbox" />
+        Require watching an ad to skip a break
+      </label>
+      <label class="checkbox">
+        <input id="strictMode" type="checkbox" />
+        Strict mode (breaks cannot be skipped)
+      </label>
+      <label class="checkbox">
+        <input id="launchAtLogin" type="checkbox" />
+        Launch at login
+      </label>
+      <label>
+        Panic hotkey
+        <input id="panicHotkey" type="text" />
+      </label>
+      <button type="submit">Save</button>
+      <span id="saved" class="saved" hidden>Saved ✓</span>
+    </form>
+    <script src="settings.js"></script>
+  </body>
+</html>
