@@ -9,6 +9,12 @@ files:
 extraResources:
   - from: assets
     to: assets
+# Auto-update feed (consumed by electron-updater). Releases are published to
+# GitHub Releases; update `owner`/`repo` if the repo moves.
+publish:
+  provider: github
+  owner: aknema2010
+  repo: takeabreak
 # Code signing & notarization are required for distribution (see ARCHITECTURE.md).
 # Configure certificates via environment / CI secrets before running `npm run dist`.
 win:

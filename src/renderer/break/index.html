@@ -22,9 +22,18 @@
     <!-- Ad view (shown only after the user opts to skip) -->
     <section id="ad-view" class="view" hidden>
       <p class="ad-label">Advertisement</p>
-      <video id="ad-video" class="ad-video" muted playsinline>
-        <source src="../../assets/ads/sample.mp4" type="video/mp4" />
-      </video>
+      <div class="ad-stage">
+        <!-- Built-in animated "house ad" — always renders, no binary needed. -->
+        <div id="house-ad" class="house-ad">
+          <div class="house-ad__pulse"></div>
+          <div class="house-ad__brand">TakeABreak</div>
+          <div class="house-ad__tag">Rest your eyes. Move your body.</div>
+        </div>
+        <!-- Optional real clip; shown only if assets/ads/sample.mp4 loads. -->
+        <video id="ad-video" class="ad-video" muted playsinline hidden>
+          <source src="../../assets/ads/sample.mp4" type="video/mp4" />
+        </video>
+      </div>
       <div class="ad-timer">
         Skip available in <span id="ad-remaining">--</span>s
       </div>

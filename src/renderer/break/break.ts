@@ -8,6 +8,7 @@ const breakCountdown = document.getElementById('break-countdown')!;
 const skipBtn = document.getElementById('skip-btn') as HTMLButtonElement;
 const strictNote = document.getElementById('strict-note')!;
 const adVideo = document.getElementById('ad-video') as HTMLVideoElement;
+const houseAd = document.getElementById('house-ad')!;
 const adRemaining = document.getElementById('ad-remaining')!;
 
 window.api.onBreakStart((p) => {
@@ -35,8 +36,15 @@ window.api.onAdShow(() => {
   // its authoritative countdown on receiving this — the video ending early or
   // failing to load cannot shorten the gate.
   window.api.adStarted();
+
+  // Show the real clip only if it actually loads; otherwise the animated
+  // house ad (already on screen) remains the visual.
+  adVideo.addEventListener('loadeddata', () => {
+    adVideo.hidden = false;
+    houseAd.hidden = true;
+  });
   adVideo.play().catch(() => {
-    /* No clip / autoplay blocked — the main-process timer still governs. */
+    /* No clip / autoplay blocked — house ad stays; main-process timer governs. */
   });
 });
 

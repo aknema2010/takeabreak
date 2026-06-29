@@ -11,6 +11,7 @@ import { LockWindows } from './lock-window';
 import { Scheduler } from './scheduler';
 import { createTray } from './tray';
 import { getSettings, saveSettings } from './settings-store';
+import { initAutoUpdater } from './updater';
 import { BreakStartPayload, IPC, Settings } from '../shared/types';
 
 let tray: Tray | null = null;
@@ -126,6 +127,7 @@ app.whenReady().then(() => {
 
   app.setLoginItemSettings({ openAtLogin: getSettings().launchAtLogin });
   scheduler.start();
+  initAutoUpdater();
 });
 
 // Tray app: don't quit when all windows close.

@@ -30,6 +30,7 @@ npm start          # build + launch
 | Authoritative 5s ad timer (skip gate) | `src/main/ad-timer.ts` |
 | App lifecycle, IPC, panic hotkey, tray | `src/main/main.ts`, `src/main/tray.ts` |
 | Settings persistence | `src/main/settings-store.ts` |
+| Background auto-update (GitHub Releases) | `src/main/updater.ts` |
 | Audited renderer bridge | `src/preload/preload.ts` |
 | Break + ad UI | `src/renderer/break/` |
 | Settings UI | `src/renderer/settings/` |
@@ -42,8 +43,21 @@ decides when the skip is granted. The break overlay is an app-level interruption
 (the OS keeps running underneath) and a configurable **panic hotkey** always
 dismisses it — the user is never trapped.
 
+## Releases & CI
+
+- **`.github/workflows/ci.yml`** — typechecks and builds on every push/PR.
+- **`.github/workflows/release.yml`** — on a `v*` tag, builds installers for
+  macOS/Windows/Linux and publishes them to a GitHub Release (which also feeds
+  the auto-updater). Code-signing secrets are wired but optional:
+
+  ```bash
+  git tag v0.1.0 && git push origin v0.1.0
+  ```
+
 ## Status
 
-Scaffolding / milestone 1–6 wired (skeleton, tray, single-instance, scheduler,
-overlay, ad-gated skip, settings). Not yet done: a real bundled clip asset, code
-signing/notarization, and auto-update (see `ARCHITECTURE.md` build plan).
+Milestones 1–8 wired: skeleton, tray, single-instance, scheduler, overlay,
+ad-gated skip, settings, power handling, auto-update, and CI/release packaging.
+The ad gate works out of the box via a built-in animated house ad; drop a real
+`assets/ads/sample.mp4` to use a clip. Code-signing certificates still need to
+be provisioned (CI secrets are wired, see `release.yml`).

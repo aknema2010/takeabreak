@@ -77,11 +77,72 @@ h1 {
   opacity: 0.6;
 }
 
-.ad-video {
+.ad-stage {
+  position: relative;
   width: min(70vw, 960px);
+  aspect-ratio: 16 / 9;
   max-height: 60vh;
+}
+
+.ad-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   background: #000;
   border-radius: 12px;
+  object-fit: contain;
+}
+
+.ad-video[hidden] {
+  display: none;
+}
+
+.house-ad {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1d2b64 0%, #f8cdda 220%);
+}
+
+.house-ad__pulse {
+  position: absolute;
+  width: 60%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  animation: house-pulse 2.5s ease-in-out infinite;
+}
+
+.house-ad__brand {
+  position: relative;
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.house-ad__tag {
+  position: relative;
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  opacity: 0.85;
+}
+
+@keyframes house-pulse {
+  0%,
+  100% {
+    transform: scale(0.85);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.9;
+  }
 }
 
 .ad-timer {
